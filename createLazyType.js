@@ -18,13 +18,16 @@ function createLazyType({ element: el, text: txt, duration: duration }) {
     // by the (key) of current letter in the []buffer that g is pointing to ..
     // and whenever the event would happen we'll push the key to the textContent of
     // element
-    setInterval(() => {
+    let interval = setInterval(() => {
         el.dispatchEvent(
             new KeyboardEvent("keydown", {
                 key: buffer[g],
             })
         );
         g++;
+        if (buffer.length == g) {
+            clearInterval(interval)
+        }
     }, duration);
 
     //
