@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v32.0.0/Vazirmatn-font-face.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+
+        <title>Document</title>
+        <style>
+            * {
+                direction: rtl;
+                font-family: Vazirmatn;
+                text-align: justify;
+                margin: 20px 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="input"></h2>
+        <script src="./createLazyType.js"></script>
+
+        <script defer>
+            // const input = document.getElementById("input");
+            
+            // createLazyType({element:input , text : "متن دلخواهم" , duration : 300})
+            
+
+            // createLazyType({element:input , text:"سلامسلامسلامسلامسلام", duration:200});
+
+
+
+
+
+
+            const input = document.getElementById("input");
+
+            let text = `سلام ، یه چیز باحال دارم براتون ، می تونید با این ابزار ، هر متنی رو به این شکل بنویسید ... توی وبسایت codepen همچین چیزی رو دیدم و سعی کردم یه پکیجی براش پیدا کنم ، شاید باشه ولی من پیدا نکردم و تصمیم گرفتم خودم بسازم ...
+            توی سورس کد به روشنی روش کار رو توضیح دادم و در نهایت این ابزار رو برای دوستان قرار می دم تا ازش بتونن استفاده کنن `;
+            let repo = [];
+
+            for (let i = 0; i <= text.length; i++) {
+                repo.push(text[i]);
+            }
+            // const repo = ["س", "ل", "ا", "م"];
+
+            let i = 0;
+
+            setInterval(() => {
+                input.dispatchEvent(
+                    new KeyboardEvent("keydown", {
+                        key: repo[i],
+                    })
+                );
+                i++;
+            }, 100);
+
+            input.addEventListener("keydown", (e) => {
+                input.textContent += e.key;
+            });
+        </script>
+    </body>
+</html>
